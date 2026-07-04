@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CSharpJune26.ConsoleApp/CSharpJune26.ConsoleApp.csproj" />
+  <Project Path="CSharpJune26.ConsoleApp2/CSharpJune26.ConsoleApp2.csproj" />
+  <Project Path="CSharpJune26.ConsoleApp3/CSharpJune26.ConsoleApp3.csproj" />
+</Solution>
