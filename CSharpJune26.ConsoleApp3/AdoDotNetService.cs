@@ -15,7 +15,7 @@ namespace CSharpJune26.ConsoleApp3
             SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
 
             sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "JOINCODER"; //Database name
+            sc.InitialCatalog = "AdventureWorks2019"; //Database name
             sc.UserID = "sa"; //Username
             sc.Password = "love"; //Password
             sc.TrustServerCertificate = true; //Trust the server certificate
@@ -58,7 +58,7 @@ namespace CSharpJune26.ConsoleApp3
             SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
 
             sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "JOINCODER"; //Database name
+            sc.InitialCatalog = "AdventureWorks2019"; //Database name
             sc.UserID = "sa"; //Username
             sc.Password = "love"; //Password
             sc.TrustServerCertificate = true;
@@ -90,7 +90,7 @@ namespace CSharpJune26.ConsoleApp3
             SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
 
             sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "JOINCODER";
+            sc.InitialCatalog = "AdventureWorks2019";
             sc.UserID = "sa";
             sc.Password = "love";
             sc.TrustServerCertificate = true;
@@ -117,7 +117,7 @@ namespace CSharpJune26.ConsoleApp3
         {
             SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
             sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "JOINCODER";
+            sc.InitialCatalog = "AdventureWorks2019";
             sc.UserID = "sa";
             sc.Password = "love";
             sc.TrustServerCertificate = true;
