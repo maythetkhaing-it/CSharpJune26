@@ -16,7 +16,7 @@ namespace CSharpJune26.ConsoleApp4
         private readonly SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder()
         {
             DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022",
-            InitialCatalog = "JOINCODER",
+            InitialCatalog = "CSharpJune26",
             UserID = "sa",
             Password = "love",
             TrustServerCertificate = true

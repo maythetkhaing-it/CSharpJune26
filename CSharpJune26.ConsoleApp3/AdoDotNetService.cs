@@ -10,17 +10,20 @@ namespace CSharpJune26.ConsoleApp3
 {
     internal class AdoDotNetService
     {
-        public void Read()
-        {
-            SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
+        private readonly SqlConnectionStringBuilder sc;
+        public AdoDotNetService() {
 
+            sc = new SqlConnectionStringBuilder();
             sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "AdventureWorks2019"; //Database name
+            sc.InitialCatalog = "CSharpJune26"; //Database name
             sc.UserID = "sa"; //Username
             sc.Password = "love"; //Password
             sc.TrustServerCertificate = true; //Trust the server certificate
+        }
 
-            SqlConnection connection = new SqlConnection(sc.ConnectionString);
+        public void Read()
+        {
+           SqlConnection connection = new SqlConnection(sc.ConnectionString);
 
             connection.Open();
             Console.WriteLine("Connection opened successfully!");
@@ -41,28 +44,40 @@ namespace CSharpJune26.ConsoleApp3
             connection.Close();
             Console.WriteLine("Connection closed.");
 
-            foreach (DataRow item in dt.Rows)
+            List<Student> lst = new List<Student>();
+            
+            foreach (DataRow row in dt.Rows)
             {
+                Student student = new Student
+                {
 
-                Console.WriteLine(item["user_id"]);
-                Console.WriteLine(item["username"]);
-                Console.WriteLine(item["phone"]);
-                Console.WriteLine(item["address"]);
-                Console.WriteLine("=============");
+                    StudentId = Convert.ToInt32(row["StudentId"]),
+                    StudentName = Convert.ToString(row["StudentName"]),
+                    FatherName = Convert.ToString(row["FatherName"]),
+                    StudentNo = Convert.ToString(row["StudentNo"]),
+                    Email = Convert.ToString(row["Email"]),
+                    Phone = Convert.ToString(row["Phone"]),
+                    DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
+                    //IsDelete = Convert.ToBoolean(row["IsDelete"]),
 
+                    //Console.WriteLine(item["user_id"]);
+                    //Console.WriteLine(item["username"]);
+                    //Console.WriteLine(item["phone"]);
+                    //Console.WriteLine(item["address"]);
+                    //Console.WriteLine("=============");
+
+
+                };
+                lst.Add(student);
+            }
+            foreach (var item in lst)
+            {
+                Console.WriteLine($"Id :{item.StudentId}, Name: {item.StudentName}");
             }
         }
 
         public void Create()
         {
-            SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
-
-            sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "AdventureWorks2019"; //Database name
-            sc.UserID = "sa"; //Username
-            sc.Password = "love"; //Password
-            sc.TrustServerCertificate = true;
-
             SqlConnection connection = new SqlConnection(sc.ConnectionString);
             connection.Open();
             Console.WriteLine("Connection opened successfully!");
@@ -87,14 +102,7 @@ namespace CSharpJune26.ConsoleApp3
 
         public void Update()
         {
-            SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
-
-            sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "AdventureWorks2019";
-            sc.UserID = "sa";
-            sc.Password = "love";
-            sc.TrustServerCertificate = true;
-
+            
             SqlConnection conn = new SqlConnection(sc.ConnectionString);
             conn.Open();
             Console.WriteLine("Connection opened successfully!");
@@ -115,13 +123,7 @@ namespace CSharpJune26.ConsoleApp3
 
         public void Delete()
         {
-            SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder();
-            sc.DataSource = "DESKTOP-MN2FBFP\\MSSQLSERVER2022"; //"localhost"; //Server name
-            sc.InitialCatalog = "AdventureWorks2019";
-            sc.UserID = "sa";
-            sc.Password = "love";
-            sc.TrustServerCertificate = true;
-
+            
             SqlConnection conn = new SqlConnection(sc.ConnectionString);
             conn.Open();
 
@@ -134,4 +136,19 @@ namespace CSharpJune26.ConsoleApp3
             conn.Close();
         }
     }
+}
+
+public class Student
+{
+    public int StudentId { get; set; }
+    public string StudentName { get; set; }
+    public string FatherName { get; set; }
+
+    public string StudentNo { get; set; }
+    public string Email { get; set; }
+    public string Phone { get; set; }
+    public DateTime DateOfBirth { get; set; }
+
+    public bool IsDelete { get; set; }
+
 }
