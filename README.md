@@ -1,68 +1,35 @@
-C# ADO.NET Notes
-***What is ADO.NET?
-ADO.NET (ActiveX Data Objects .NET)
-- C# application နှင့် Database ကို ချိတ်ပြီး CRUD လုပ်ရန် Microsoft မှပေးထားသော Data Access Technology ဖြစ်သည်။
+# C# Practice Projects
 
-***ADO.NET vs ORM
-ADO.NET	
-	SQL ကို ကိုယ်တိုင်ရေးရ	
-	Performance ကောင်း	
-	SQL Control အပြည့်ရ	
-	Learning Curve ပိုမြင့်	
-	Large Project တွေမှာလည်း သုံးနိုင်	
+This file contains my C# practice projects.
 
-ORM
-	SQL ကို ORM က Generate လုပ်ပေး
-	CRUD အတွက် အချိန်ကုန်သက်သာ
-	SQL Control နည်း
-	Beginner Friendly
-	Project အရွယ်အစားနဲ့ မဆိုင်၊ လိုအပ်ချက်ပေါ်မူတည်
+## 1. ADO.NET
 
-***Required Package - NuGet Package --> System.Data.SqlClient
-***Connection String - Application နဲ့ Database ကို ဘယ်လိုချိတ်ရမလဲဆိုတဲ့ Information
-eg.	Server=localhost; //server name
-	Database=SchoolDB;//db name
-	User Id=sa;		  //SQL Login
-	Password=123456;  //password
-	TrustServerCertificate=True;
+Practice using traditional database access with C#.
 
-***ADO.NET Flow
-Connection String
-        |
-SqlConnection --> Database Connection
-        |
-Open()
-        |
-SqlCommand --> SQL Query ကို Execute လုပ်ဖို့
-        |
-Execute
-        |
-Read Result --> Database က Data ကို DataTable ထဲ Fill လုပ်ပေးရန်
-        |
-Close()
+Covered:
+- SqlConnection
+- SqlCommand
+- SqlDataReader
+- DataTable
+- CRUD Operations
 
-DataTable -->Table တစ်ခုစာ Data သိမ်း
-DataSet   -->Table အများကြီး သိမ်းထားနိုင်
-DataRow   -->Row တစ်ကြောင်း
-DataColumn-->Column  တစ်ခု
+### 2. Dapper
 
-***Execute Methods
-	SELECT Result များ ဖတ်ရန် --> ExecuteReader() --> SqlDataAdapter.Fill()
-	Insert, Update, Delete တို့လို Result မပြန်တဲ့ Query တွေအတွက် -->ExecuteNonQuery() -->  Affected Rows (1 row affected....)
-	COUNT, MAX, MIN စတဲ့ Value တစ်ခုတည်း -->  ExecuteScalar() -->  eg. SELECT COUNT(*), SELECT MAX(Id)
+Practice using Dapper ORM for database operations.
 
-***using Statement
-	Connection ကို using နဲ့ရေးရင် 
-	using(SqlConnection conn = new SqlConnection(cs))
-		{
+Covered:
+- Connection handling
+- Query execution
+- Object Mapping
+- CRUD Operations
 
-		} Block ပြီးတာနဲ့ Automatically Close ဖြစ်သွားတယ်
+#### 3. Entity Framework Core Scaffold
 
-ကိုယ်တိုင် conn.Close(); မခေါ်လည်းရတယ်
+Practice using EF Core Database First approach.
 
-***SQL Injection ကို ကာကွယ်ရန် --> cmd.Parameters.AddWithValue("@Name", txtName.Text); --> Parameter ပေးပြီးသုံးသင့်တယ် 
-***Namespace
-	File Scoped Namespace --> namespace SchoolSMS; // အသုံးများ
-	Block Scoped Namespace --> namespace SchoolSMS{}
-							
-
+Covered:
+- Database Scaffold
+- DbContext generation
+- Model generation
+- LINQ Query
+- Database operations
